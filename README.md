@@ -25,7 +25,9 @@ Supports **Shoutcast** and **Icecast** streams with live title updates, scrollin
 ## 🏗 Architecture (since 2.0)
 
 footer-radio-player/
+
 │
+
 ├── footer-radio-player.php
 
 ├── includes/
