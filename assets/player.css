@@ -1,0 +1,162 @@
+/* =================================
+   Player Container
+================================= */
+
+#frp-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: var(--frp-bg);
+    color: var(--frp-text);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 9999;
+}
+
+/* =================================
+   Cover
+================================= */
+
+.frp-cover {
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.frp-cover img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    display: block;
+}
+
+/* =================================
+   Left Side
+================================= */
+
+.frp-left {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Sendername */
+.frp-title {
+    font-weight: 700;       /* immer bold */
+    font-size: 20px;        /* vorher 18px → +2px */
+    margin-bottom: 4px;
+}
+
+/* Radiotext */
+.frp-track {
+    font-size: 18px;        /* vorher 16px → +2px */
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+#frp-current-track {
+    display: inline-block;
+    padding-left: 100%;
+    animation: frp-scroll 18s linear infinite;
+}
+
+@keyframes frp-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-100%); }
+}
+
+/* =================================
+   Controls
+================================= */
+
+.frp-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.frp-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.frp-btn svg {
+    width: 35px;
+    height: 35px;
+}
+
+/* =================================
+   Volume
+================================= */
+
+.frp-volume-wrapper {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.frp-volume-slider {
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-width 0.3s ease, opacity 0.2s ease;
+}
+
+.frp-volume-wrapper:hover .frp-volume-slider {
+    max-width: 120px;
+    opacity: 1;
+    margin-left: 8px;
+}
+
+#frp-volume {
+    width: 120px;
+}
+
+/* =================================
+   Responsive
+================================= */
+
+@media (max-width: 768px) {
+
+    #frp-player {
+        padding: 8px 12px;
+    }
+
+    .frp-cover img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .frp-title {
+        font-size: 17px;   /* Desktop 20 → hier etwas kleiner */
+    }
+
+    .frp-track {
+        font-size: 16px;   /* Desktop 18 → hier etwas kleiner */
+    }
+
+    .frp-btn svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    /* Volume komplett ausblenden */
+    .frp-volume-wrapper {
+        display: none !important;
+    }
+}
+
+/* =================================
+   Content Abstand
+================================= */
+
+body {
+    padding-bottom: 60px;
+}
